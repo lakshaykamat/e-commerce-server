@@ -43,6 +43,7 @@ const Products = () => {
           productData.data.map((product: productType) => {
             return (
               <ProductCard
+              key={product._id}
                 title={product.name}
                 image={product.imageURL}
                 description={product.details}
