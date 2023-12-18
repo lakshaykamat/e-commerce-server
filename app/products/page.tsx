@@ -3,18 +3,32 @@ import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/lib/sanity";
 import { productType } from "@/types";
 import ProductCard, { ProductCardSkeleton } from "./ProductCard";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Plus } from "lucide-react";
+import ProductForm from "./ProductForm";
 
 const Products = () => {
   const productData = useQuery({
     queryKey: ["products"],
     queryFn: getProducts,
   });
-
   return (
     <div>
-      <h1 className="mt-12">Products</h1>
-
+      <div className="mt-12 flex justify-between items-center">
+        <h1>Products</h1>
+        <Sheet>
+          <SheetTrigger>
+            <Button>
+              <Plus className="mr-2" />
+              New
+            </Button>
+          </SheetTrigger>
+          <SheetContent side={"left"}>
+            <ProductForm />
+          </SheetContent>
+        </Sheet>
+      </div>
       <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {productData.isLoading ? (
           <>
@@ -24,6 +38,8 @@ const Products = () => {
             <ProductCardSkeleton />
           </>
         ) : (
+          productData.isError ? <h1>Error :(</h1>
+          :
           productData.data.map((product: productType) => {
             return (
               <ProductCard

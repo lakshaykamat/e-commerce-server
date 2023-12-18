@@ -5,15 +5,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { PackagePlus } from "lucide-react";
-import ProductForm from "./ProductForm";
 import { Skeleton } from "@/components/ui/skeleton";
-
 
 const ProductCard = ({
   description,
@@ -34,38 +26,26 @@ const ProductCard = ({
         <p>{description}</p>
       </CardContent>
       <CardFooter className="flex gap-3">
-        <Sheet>
-          <SheetTrigger>
-            <Button>
-              <PackagePlus className="mr-2" />
-              Add New
-            </Button>
-          </SheetTrigger>
-          <SheetContent side={"bottom"}>
-            <ProductForm />
-          </SheetContent>
-        </Sheet>
-
         <Button variant={"outline"}>View Details</Button>
       </CardFooter>
     </Card>
   );
 };
 
-export const ProductCardSkeleton = ()=>{
-  return(
+export const ProductCardSkeleton = () => {
+  return (
     <Card>
-    <CardHeader>
-    <Skeleton className="h-32 w-[250px]" />
-    </CardHeader>
-    <CardContent className="flex gap-6 flex-col">
-    <Skeleton className="h-20"/>
-    </CardContent>
-    <CardFooter className="flex gap-3">
-      <Skeleton className="h-8 w-20"/>
-      <Skeleton className="h-8 w-20"/>
-    </CardFooter>
-  </Card>
-  )
-}
+      <CardHeader>
+        <Skeleton className="h-32 w-[250px]" />
+      </CardHeader>
+      <CardContent className="flex gap-6 flex-col">
+        <Skeleton className="h-20" />
+      </CardContent>
+      <CardFooter className="flex gap-3">
+        <Skeleton className="h-8 w-20" />
+        <Skeleton className="h-8 w-20" />
+      </CardFooter>
+    </Card>
+  );
+};
 export default ProductCard;
