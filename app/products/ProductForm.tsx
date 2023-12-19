@@ -30,7 +30,10 @@ const ProductForm = () => {
     e.preventDefault();
     const product = {
       name: productForm.name,
-      slug: productForm.slug,
+      slug:{
+        current:productForm.slug,
+        _type:'slug'
+      },
       imageURL: productForm.imageURL,
       details: productForm.details,
       price: productForm.price,
@@ -44,7 +47,7 @@ const ProductForm = () => {
     console.log(response)
 
     if (response) {
-      toast.success("🦄 Wow so easy!", {
+      toast.success(`${product.name} is Added to Card ✅`, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -55,7 +58,7 @@ const ProductForm = () => {
         theme: "light",
       });
     } else {
-      toast.error("🦄 Wow so easy!", {
+      toast.error("Error", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
