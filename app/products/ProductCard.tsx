@@ -19,7 +19,7 @@ const ProductCard = (props: any) => {
         <h3>{props.name}</h3>
         <p className="mt-2 text-sm">{props.description}</p>
         <div className="flex justify-between mt-3">
-        <span className={`${props.sellerDetails.available < 150 && 'text-red-500'}`}><b>Stock: </b>{props.sellerDetails.available}</span>
+        {/* <span className={`${props.sellerDetails.available < 150 && 'text-red-500'}`}><b>Stock: </b>{props.sellerDetails.available}</span> */}
         <span className={`${props.sellerDetails.soldOut > 150 && 'text-green-500'}`}><b>Available: </b>{props.sellerDetails.soldOut}</span>
         </div>
         <span><b>Seller: </b>{props.sellerDetails.sellerName}</span>

@@ -36,11 +36,14 @@ const ProductForm = () => {
       },
       imageURL: productForm.imageURL,
       details: productForm.details,
-      price: productForm.price,
       description: productForm.description,
-      available: productForm.available,
-      soldOut: productForm.soldOut,
-      rating: productForm.rating,
+      price: productForm.price,
+      sellerDetails:{
+        available: productForm.available,
+        soldOut: productForm.soldOut,
+        rating: productForm.rating,
+        sellerName:productForm.sellerName
+      }
     };
     console.log(product)
     const response = await createProduct(product);
@@ -121,6 +124,15 @@ const ProductForm = () => {
               required
               onChange={(e) =>
                 setProductForm({ ...productForm, details: e.target.value })
+              }
+              type="text"
+              placeholder="Enter description"
+            />
+            <Input
+              value={productForm.description}
+              required
+              onChange={(e) =>
+                setProductForm({ ...productForm, description: e.target.value })
               }
               type="text"
               placeholder="Enter description"
