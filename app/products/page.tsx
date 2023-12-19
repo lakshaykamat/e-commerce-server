@@ -37,16 +37,18 @@ const Products = () => {
             <ProductCardSkeleton />
             <ProductCardSkeleton />
           </>
+        ) : productData.isError ? (
+          <h1>Error :(</h1>
         ) : (
-          productData.isError ? <h1>Error :(</h1>
-          :
-          productData.data.map((product: productType) => {
+          productData.data.map((product: productType, index: number) => {
             return (
               <ProductCard
-              key={product._id}
-                title={product.name}
-                image={product.imageURL}
-                description={product.details}
+                sellerDetails={product.sellerDetails}
+                slug={product.slug}
+                price={product.price}
+                name={product.name}
+                image={product.image}
+                description={product.description}
               />
             );
           })
