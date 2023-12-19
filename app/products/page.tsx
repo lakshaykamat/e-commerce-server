@@ -43,6 +43,7 @@ const Products = () => {
           productData.data.map((product: productType, index: number) => {
             return (
               <ProductCard
+              key={index}
                 sellerDetails={product.sellerDetails}
                 slug={product.slug}
                 price={product.price}
