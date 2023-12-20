@@ -43,29 +43,28 @@ const Navbar = () => {
     );
   });
   return (
-    <header className="flex justify-around py-4 border-b-2 border-gray-300 dark:border-gray-800">
+    <header className="flex items-center justify-around py-4 border-b-2 border-gray-300 dark:border-gray-800">
       <h3>Admin Panel</h3>
-      {/* <div className="flex sm:hidden gap-3 items-center justify-center">
-      <Sheet>
-      <SheetTrigger>
+      <div className="flex sm:hidden gap-3 items-center justify-center">
         <div className="justify-center sm:hidden flex gap-3 items-center">
           <Button variant={"outline"} size={"icon"}>
-            <Menu />
+            <Sheet>
+              <SheetTrigger>
+                <Menu />
+              </SheetTrigger>
+              <SheetContent>
+                <SheetHeader>
+                  <SheetTitle>Admin Panel</SheetTitle>
+                  <SheetDescription className="grid grid-cols-1 gap-3 place-content-start place-items-start">
+                    {navItems}
+                  </SheetDescription>
+                </SheetHeader>
+              </SheetContent>
+            </Sheet>
           </Button>
-          <ModeToggle/>
+          <ModeToggle />
         </div>
-      </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Admin Panel</SheetTitle>
-          <SheetDescription className="grid grid-cols-1 gap-3 place-content-start place-items-start">
-            {navItems}
-          </SheetDescription>
-        </SheetHeader>
-      </SheetContent>
-    </Sheet>
-   
-      </div> */}
+      </div>
       <div className="sm:flex hidden items-center gap-3">
         {navItems}
         <ModeToggle />
@@ -113,7 +112,7 @@ const MobileNavbar = () => {
           </Button>
         </div>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="">
         <SheetHeader>
           <SheetTitle>Admin Panel</SheetTitle>
           <SheetDescription className="grid grid-cols-1 gap-3 place-content-start place-items-start">
